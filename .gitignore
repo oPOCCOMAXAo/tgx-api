@@ -1,0 +1,7 @@
+.local
+.vscode
+__debug_bin*
+
+*.sqlite
+*.sqlite3
+*.db

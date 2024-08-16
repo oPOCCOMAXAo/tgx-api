@@ -1,0 +1,37 @@
+@hostname = localhost
+@port = 8080
+@host = {{hostname}}:{{port}}
+@phone = 
+@code = 
+@password = 
+
+### Get state
+GET http://{{host}}/setup
+
+
+### Enter phone
+POST http://{{host}}/setup
+Content-Type: application/x-www-form-urlencoded
+
+phone={{phone}}
+
+### Enter code
+POST http://{{host}}/setup
+Content-Type: application/x-www-form-urlencoded
+
+code={{code}}
+
+### Enter password
+POST http://{{host}}/setup
+Content-Type: application/x-www-form-urlencoded
+
+password={{password}}
+
+### Get users
+GET http://{{host}}/linked_chat_users
+Content-Type: application/json
+
+{
+    "username": "",
+    "chat_id": ""
+}
