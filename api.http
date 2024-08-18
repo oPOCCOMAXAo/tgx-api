@@ -4,6 +4,7 @@
 @phone = 
 @code = 
 @password = 
+@username = 
 
 ### Get state
 GET http://{{host}}/setup
@@ -28,10 +29,10 @@ Content-Type: application/x-www-form-urlencoded
 password={{password}}
 
 ### Get users
-GET http://{{host}}/linked_chat_users
+POST http://{{host}}/linked_chat_users
 Content-Type: application/json
 
 {
-    "username": "",
-    "chat_id": ""
+    "username": "{{username}}",
+    "chat_id": 0
 }

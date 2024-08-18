@@ -23,6 +23,7 @@ func (s *Service) Init(
 	router.GET("/setup", s.Setup)
 	router.POST("/setup", s.Setup)
 	router.GET("/linked_chat_users", s.GetLinkedChatUsers)
+	router.POST("/linked_chat_users", s.GetLinkedChatUsers)
 
 	return nil
 }
