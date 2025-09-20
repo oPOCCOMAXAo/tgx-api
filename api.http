@@ -1,6 +1,6 @@
-@hostname = localhost
-@port = 8080
-@host = {{hostname}}:{{port}}
+@host_dev = localhost:8080
+@host_prod = 
+@host = {{host_dev}}
 @phone = 
 @code = 
 @password = 

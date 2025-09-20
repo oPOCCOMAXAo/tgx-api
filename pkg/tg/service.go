@@ -15,9 +15,10 @@ type Service struct {
 }
 
 type Config struct {
-	APIID   int64  `env:"API_ID,required"`
-	APIHash string `env:"API_HASH,required"`
-	DataDir string `env:"DATA_DIR,required"`
+	APIID     int64  `env:"API_ID,required"`
+	APIHash   string `env:"API_HASH,required"`
+	DataDir   string `env:"DATA_DIR,required"`
+	Verbosity int32  `env:"VERBOSITY"         envDefault:"0"`
 }
 
 func New(
@@ -46,7 +47,10 @@ func New(
 func (s *Service) Serve(_ context.Context) error {
 	var err error
 
-	s.client, err = client.NewClient(s.auth)
+	s.client, err = client.NewClient(
+		s.auth,
+		client.WithLogVerbosity(&client.SetLogVerbosityLevelRequest{NewVerbosityLevel: s.cfg.Verbosity}),
+	)
 	if err != nil {
 		return errors.WithStack(err)
 	}

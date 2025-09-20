@@ -1,4 +1,4 @@
-FROM alpine:3.19 as tdlib-builder
+FROM alpine:3.19 AS tdlib-builder
 
 ENV LANG=en_US.UTF-8
 ENV TZ=UTC
@@ -38,11 +38,11 @@ WORKDIR /src
 RUN php SplitSource.php
 
 WORKDIR /src/build
-RUN cmake --build . --target install -j4
+RUN cmake --build . --target install -j10
 
 RUN ls -lah /usr/local
 
-FROM golang:1.22-alpine3.19 as go-builder
+FROM golang:1.22-alpine3.19 AS go-builder
 
 ENV LANG=en_US.UTF-8
 ENV TZ=UTC

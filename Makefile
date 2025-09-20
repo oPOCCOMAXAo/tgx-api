@@ -14,3 +14,5 @@ upload-docker:
 
 test-docker:
 	docker run -it --rm poccomaxa/tgx:latest
+
+prod: build-docker upload-docker
